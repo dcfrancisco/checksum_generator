@@ -41,21 +41,31 @@ AI   540 PUT(NX,I+16),FALL
 ## How to Use
 
 ### Requirements
-- A C compiler (e.g., `gcc`).
+- **CMake** (recommended for building the project).
+- A C++ compiler that supports **C++17**.
 
 ### Compilation
 
 1. Clone or download this repository.
-2. Compile the program using a C compiler:
+2. Create a build directory and generate build files using CMake:
    ```bash
-   gcc -o checksum_generator checksum_generator.c
+   mkdir build
+   cd build
+   cmake ..
    ```
+
+3. Build the project using CMake:
+   ```bash
+   cmake --build .
+   ```
+
+This will create an executable binary named `checksum` in your build directory.
 
 ### Running the Program
 
 Run the program with an input file as a parameter:
 ```bash
-./checksum_generator inputfile.txt
+./checksum <inputfile.txt>
 ```
 
 This will generate a new file with the `.out` extension that contains the checksum for each line.
@@ -75,7 +85,7 @@ ED   750 DATA &H2C,&H17,&H0,&H5,&H0,&H0,&H4015,&H0
 
 ### Customization
 - **Adjusting Spaces**: You can adjust the number of spaces between the checksum and the line of code by modifying the `SPACE_WIDTH` constant in the code:
-  ```c
+  ```cpp
   #define SPACE_WIDTH 5  // Adjust the number of spaces here
   ```
 
