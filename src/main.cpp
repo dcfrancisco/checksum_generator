@@ -1,4 +1,6 @@
 #include "checksum.h"
+#include <stdio.h>
+#include <string.h>
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +21,7 @@ int main(int argc, char *argv[])
 
     // Prepare the output file name by changing the extension
     char output_filename[256];
-    strncpy(output_filename, argv[1], sizeof(output_filename));
+    snprintf(output_filename, sizeof(output_filename), "%s", argv[1]);
     char *dot = strrchr(output_filename, '.');
     if (dot != NULL)
     {
@@ -51,8 +53,12 @@ int main(int argc, char *argv[])
         // Calculate the checksum for the line
         unsigned char checksum = calculate_checksum(line);
 
+        // Convert the checksum to a two-character string
+        char checksum_str[3];
+        checksum_to_string(checksum, checksum_str);
+
         // Print the checksum followed by the original line in the output file
-        fprintf(output_file, "%02X%*s%s\n", checksum, SPACE_WIDTH, "", line);
+        fprintf(output_file, "%s   %s\n", checksum_str, line); // 3 spaces between checksum and line
     }
 
     // Close the input and output files

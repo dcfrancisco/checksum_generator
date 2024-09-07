@@ -10,3 +10,11 @@ unsigned char calculate_checksum(const char *line)
     }
     return checksum;
 }
+
+// Function to convert the checksum to a two-character string
+void checksum_to_string(unsigned char checksum, char *checksum_str)
+{
+    checksum_str[0] = (checksum / 16) + 'A';
+    checksum_str[1] = (checksum % 16) + 'A';
+    checksum_str[2] = '\0';
+}
