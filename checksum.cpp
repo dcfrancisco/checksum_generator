@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define SPACE_WIDTH 3
+
 // Function to calculate checksum of a string (line)
 unsigned char calculate_checksum(const char *line)
 {
@@ -65,7 +67,8 @@ int main(int argc, char *argv[])
         unsigned char checksum = calculate_checksum(line);
 
         // Print the checksum followed by the original line in the output file
-        fprintf(output_file, "%02X %s\n", checksum, line);
+
+        fprintf(output_file, "%02X%*s%s\n", checksum, SPACE_WIDTH, "", line);
     }
 
     // Close the input and output files
