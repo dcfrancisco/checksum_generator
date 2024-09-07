@@ -1,19 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define SPACE_WIDTH 3
-
-// Function to calculate checksum of a string (line)
-unsigned char calculate_checksum(const char *line)
-{
-    unsigned char checksum = 0;
-    for (int i = 0; line[i] != '\0'; i++)
-    {
-        checksum = (checksum + line[i]) % 256;
-    }
-    return checksum;
-}
+#include "checksum.h"
 
 int main(int argc, char *argv[])
 {
@@ -67,7 +52,6 @@ int main(int argc, char *argv[])
         unsigned char checksum = calculate_checksum(line);
 
         // Print the checksum followed by the original line in the output file
-
         fprintf(output_file, "%02X%*s%s\n", checksum, SPACE_WIDTH, "", line);
     }
 
