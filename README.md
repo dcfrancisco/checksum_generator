@@ -35,7 +35,7 @@ For the line:
 
 The checksum is calculated as the sum of the ASCII values of each character in `540 PUT(NX,I+16),FALL`, which results in a checksum of `D0` (in hexadecimal). The output format will be:
 ```
-D0     540 PUT(NX,I+16),FALL
+AI   540 PUT(NX,I+16),FALL
 ```
 
 ## How to Use
@@ -64,13 +64,13 @@ This will generate a new file with the `.out` extension that contains the checks
 For an input file `example.txt` containing:
 ```
 540 PUT(NX,I+16),FALL
-550 DATA &H2C,&H17,&H0,&H5,&H0,&H0,&H4015,&H0
+750 DATA &H2C,&H17,&H0,&H5,&H0,&H0,&H4015,&H0
 ```
 
 The output will be saved in `example.out`:
 ```
-D0     540 PUT(NX,I+16),FALL
-AF     550 DATA &H2C,&H17,&H0,&H5,&H0,&H0,&H4015,&H0
+AI   540 PUT(NX,I+16),FALL
+ED   750 DATA &H2C,&H17,&H0,&H5,&H0,&H0,&H4015,&H0
 ```
 
 ### Customization
