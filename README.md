@@ -2,6 +2,9 @@
 
 This program reads a source file where each line contains code, calculates a checksum for each line, and outputs a new file. The checksum is placed at the beginning of each line, followed by a specific number of spaces, and then the original line is printed, including any line numbers.
 
+### Note:
+⚠️ **This implementation does not currently generate the same checksums as those used by COMPUTE! Magazine.** The algorithm used in this tool differs from the original checksum format used in the type-in programs from COMPUTE! Magazine. This tool is not intended as a direct replacement, but rather a different implementation that may be updated in the future.
+
 ## Features
 - **Checksum Calculation**: The program calculates the checksum for each line, including the line numbers if present.
 - **Customizable Spacing**: The number of spaces between the checksum and the original line can be adjusted via the `SPACE_WIDTH` constant.
